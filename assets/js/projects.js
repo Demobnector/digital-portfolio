@@ -65,8 +65,8 @@
         "Rooftop.png"
       ],
       videos: [
-        "Seven Seconds of Silence with You - Meetup Scene.mp4",
-        "Birthday Present 01 (2025).mp4",
+        // "Seven Seconds of Silence with You - Meetup Scene.mp4",
+        // "Birthday Present 01 (2025).mp4",
         "Birthday Present 02 (2026).mp4",
         "Valentines.mp4"
       ],
