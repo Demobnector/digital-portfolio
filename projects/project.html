@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Project | Zeejin Ganaban</title>
+<meta name="description" content="Case-study page for a project by Zeejin Ganaban.">
+<link rel="canonical" href="https://REPLACE-WITH-USERNAME.github.io/REPLACE-WITH-REPO/projects/project.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Project | Zeejin Ganaban">
+<meta property="og:description" content="Case-study page for a project by Zeejin Ganaban.">
+<meta property="og:image" content="../assets/images/J.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/images/J.jpg">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><img src="../assets/images/J.jpg" alt="" width="34" height="34"></span>
+      <span>
+        <span class="brand-name">Zeejin Ganaban</span>
+        <span class="brand-role">IT Student / Digital Artist</span>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../skills/index.html">Skills</a></li>
+        <li><a href="../experience/index.html">Experience</a></li>
+        <li><a href="../projects/index.html">Projects</a></li>
+        <li><a href="../education/index.html">Education</a></li>
+        <li><a href="../cv/index.html">CV</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-tools">
+      <button class="theme-toggle" data-theme-toggle type="button" aria-pressed="false" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2Z"/></svg>
+      </button>
+      <button class="nav-toggle" data-nav-toggle type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle menu"><span class="visually-hidden">Menu</span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Mobile">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about/index.html">About</a></li>
+      <li><a href="../skills/index.html">Skills</a></li>
+      <li><a href="../experience/index.html">Experience</a></li>
+      <li><a href="../projects/index.html">Projects</a></li>
+      <li><a href="../education/index.html">Education</a></li>
+      <li><a href="../cv/index.html">CV</a></li>
+      <li><a href="../contact/index.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="section" data-reveal>
+    <div class="wrap">
+      <p class="eyebrow-mono"><a href="index.html" class="btn-quiet btn" style="padding:0;border:none;">← All projects</a></p>
+
+      <div class="project-empty-note" id="project-not-found" style="display:none;margin-top:2.5rem;max-width:640px;">
+        That project couldn't be found. <a href="index.html" style="color:var(--blue);">Back to all projects →</a>
+      </div>
+
+      <div id="project-content">
+        <div class="project-hero" style="margin-top:1.5rem;">
+          <div>
+            <p class="section-kicker" data-field="projectType"></p>
+            <h1 class="section-title" data-field="name"></h1>
+            <p class="text-max" data-field="description"></p>
+          </div>
+          <div class="project-hero-meta">
+            <span><strong>Year</strong> <span data-field="year"></span></span>
+            <span><strong>Role</strong> <span data-field="role"></span></span>
+            <span class="status-pill" data-field="status"></span>
+          </div>
+        </div>
+
+        <div class="case-grid">
+          <div>
+            <div class="case-block" data-block="overview">
+              <h2>Overview</h2>
+              <p data-field="overview"></p>
+            </div>
+            <div class="case-block" data-block="problem">
+              <h2>The problem</h2>
+              <p data-field="problem"></p>
+            </div>
+            <div class="case-block" data-block="solution">
+              <h2>The approach</h2>
+              <p data-field="solution"></p>
+            </div>
+            <div class="case-block" data-block="features">
+              <h2>Features</h2>
+              <ul class="timeline-list" style="list-style:none;" data-field="features"></ul>
+            </div>
+
+            <div class="case-block">
+              <div class="media-head">
+                <h2>Media</h2>
+                <div class="media-toggle" role="tablist" aria-label="Media type" data-media-toggle></div>
+              </div>
+
+              <div class="media-panel" data-media-panel="images">
+                <div class="gallery-grid" data-gallery></div>
+                <p class="project-empty-note" data-gallery-empty style="display:none;">No images have been uploaded yet for this project. Once artwork is added to its <code>assets/images/projects/&lt;slug&gt;/</code> folder and listed in <code>assets/js/projects.js</code>, they'll appear here automatically in a responsive, lightbox-enabled gallery.</p>
+              </div>
+
+              <div class="media-panel" data-media-panel="videos" hidden>
+                <div class="video-gallery-grid" data-video-block></div>
+                <p class="project-empty-note" data-video-empty style="display:none;">No animation has been uploaded yet for this project. Once one or more MP4s are added to its <code>assets/video/&lt;slug&gt;/</code> folder and listed in this project's <code>videos</code> array in <code>assets/js/projects.js</code>, they'll appear here as a click-to-play thumbnail gallery.</p>
+              </div>
+
+              <div class="media-panel" data-media-panel="embeds" hidden>
+                <div data-embed-block></div>
+                <p class="project-empty-note" data-embed-empty style="display:none;">No playable build has been linked yet for this project. Once one or more entries are added to this project's <code>embeds</code> array in <code>assets/js/projects.js</code>, they'll appear here as embedded, playable frames.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="case-aside">
+            <dl>
+              <dt>Category</dt><dd data-field="categoryLine"></dd>
+              <dt>Year</dt><dd data-field="year"></dd>
+              <dt>Status</dt><dd data-field="status"></dd>
+              <dt>Role</dt><dd data-field="role"></dd>
+              <dt>Technologies</dt>
+              <dd><ul class="tag-list" data-field="technologies"></ul></dd>
+              <dt>Links</dt>
+              <dd data-project-links></dd>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" data-lightbox>
+    <button type="button" class="lightbox-close" aria-label="Close image viewer">✕</button>
+    <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous image">‹</button>
+    <div>
+      <img src="" alt="">
+      <p class="lightbox-caption" data-lightbox-caption></p>
+    </div>
+    <button type="button" class="lightbox-nav lightbox-next" aria-label="Next image">›</button>
+  </div>
+
+  <div class="lightbox video-lightbox" data-video-lightbox>
+    <button type="button" class="lightbox-close" aria-label="Close video player">✕</button>
+    <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous animation">‹</button>
+    <div>
+      <video controls preload="metadata"><source src="" type="video/mp4"></video>
+      <p class="lightbox-caption" data-video-lightbox-caption></p>
+    </div>
+    <button type="button" class="lightbox-nav lightbox-next" aria-label="Next animation">›</button>
+  </div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Zeejin Guevarra Ganaban</p>
+        <p class="footer-role">IT Student / Digital Artist</p>
+        <p style="font-size:.9rem;"><a href="mailto:jinganaban@gmail.com" style="color:var(--blue);text-decoration:none;">jinganaban@gmail.com</a></p>
+      </div>
+      <div>
+        <p class="footer-heading">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="../about/index.html">About</a></li>
+          <li><a href="../projects/index.html">Projects</a></li>
+          <li><a href="../cv/index.html">CV</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Elsewhere</p>
+        <ul class="footer-links">
+          <li><a href="https://www.facebook.com/ZeejinGanaban/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/_demobnector_/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.flickr.com/photos/demobnector/" target="_blank" rel="noopener">Flickr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Zeejin Guevarra Ganaban</span>
+      <span>Built &amp; designed as a static site for GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/projects.js"></script>
+</body>
+</html>
