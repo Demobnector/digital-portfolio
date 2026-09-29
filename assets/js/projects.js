@@ -47,7 +47,7 @@
       solution: "",
       features: [],
       status: "Ongoing"
-    },
+    }/*,
     {
       id: "digital-art-animation-collection",
       slug: "digital-art-animation-collection",
@@ -125,7 +125,7 @@
 		"Playable projects hosted through itch.io"
 	  ],
 	  status: "Completed"
-	}
+	}*/
   ];
 
   window.PORTFOLIO_PROJECTS = PROJECTS;
