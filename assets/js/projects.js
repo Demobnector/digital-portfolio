@@ -21,20 +21,25 @@
       description: "A collection of my creative work and design projects from the Graphics Design subject.",
       year: "2026–2027",
       technologies: ["Krita", "Photoshop"],
+      // Each image can be a plain filename, or an object like this one so
+      // you can give it a title + description that shows top-left when
+      // someone opens it. Blank title/description just don't show — fill
+      // them in whenever you're ready, no rush.
       images: [
-        // "activity4_Create_Your_World_Typography.jpg",
-        "activity3_social_media_post_instagram.png",
-        "activity3_social_media_post.png",
-        "activity3_landing_page_banner.png",
-        "activity3_icon.png",
-        "activity3_banner_ad.png",
-        // "activity3_Brew_Haven_Logo.jpg",
-        "activity2_Ganaban_Vertical_Logo.png",
-        "activity2_Ganaban_Icon.png",
-        "activity2_Ganaban_Horizontal_Logo.png",
-        "activity2_Ganaban_Badge.png",
-        "activity2_Ganaban_Sketch.png",
-        // "activity1_.JPG"
+		{ img: "activity4_typography.png", title: "Activity 4 - Typography", description: "Digitalized version of a notoriously difficult traditional sketch of calligraphy. Exaggerating claim; it was fun." },
+        // { img: "activity4_Create_Your_World_Typography.jpg", title: "", description: "" },
+        { img: "activity3_social_media_post_instagram.png", title: "Activity 3 - Instagram", description: "Social media post, but instead on Instagram template." },
+        { img: "activity3_social_media_post.png", title: "Activity 3 - Social Media Post", description: "Provided a post-worthy design." },
+        { img: "activity3_landing_page_banner.png", title: "Activity 3 - Landing Page Banner", description: "This is a kind of banner that you see on websites, at the very top." },
+        { img: "activity3_banner_ad.png", title: "Activity 3 - Banner Ads", description: "How do I describe this, uh, it's a banner, but it really looks like a square to me for some reason." },
+        { img: "activity3_icon.png", title: "Activity 3 - Icon", description: "A task of digitalizing a sketch of this icon. This is how it turns out." },
+        // { img: "activity3_Brew_Haven_Logo.jpg", title: "", description: "" },
+        { img: "activity2_Ganaban_Badge.png", title: "Activity 2 - Badge", description: "My logo surrounded by shapes to make it look like a badge." },
+        { img: "activity2_Ganaban_Horizontal_Logo.png", title: "Activity 2 - Horizontal Logo", description: "Logo with my name at the side." },
+        { img: "activity2_Ganaban_Vertical_Logo.png", title: "Activity 2 - Vertical Logo", description: "Logo with my name below." },
+        { img: "activity2_Ganaban_Icon.png", title: "Activity 2 - Icon", description: "My personal icon. Looks like a sticker too." },
+        { img: "activity2_Ganaban_Sketch.png", title: "Activity 2 - Sketch", description: "These are all the rough sketches and plan of how I can pull it off. We were given 2 ways, either traditional or digital. I picked digital." }
+        // { img: "activity1_.JPG", title: "", description: "" }
       ],
       videos: [],
       embeds: [],
@@ -47,7 +52,8 @@
       solution: "",
       features: [],
       status: "Ongoing"
-    }/*,
+    }
+    /*,
     {
       id: "digital-art-animation-collection",
       slug: "digital-art-animation-collection",
@@ -87,45 +93,46 @@
       status: "Ongoing"
     },
     {
-	  id: "game-development",
-	  slug: "game-development",
-	  name: "Game Development Collection",
-	  category: "Game Development",
-	  secondaryCategory: "Programming",
-	  projectType: "Game Development",
-	  description: "A collection of games and interactive projects I created while exploring programming, game development, and interactive design.",
-	  year: "2023–2025",
-	  technologies: ["HTML", "Notepad++", "Spyder"],
-	  images: [
-		"banga01.png",
-		"banga02.png",
-		"banga03.png",
-		"banga04.png",
-	  ],
-	  videos: [],
-	  embeds: [
-		{
-		  url: "https://itch.io/embed-upload/9092237?color=676767",
-		  aspect: "16/9",
-		  linkLabel: "Play on itch.io"
-		}
-	  ],
-	  projectUrl: null,
-	  githubUrl: null,
-	  demoUrl: "https://demobnector.itch.io/",
-	  role: "Creator / Programmer",
-	  overview: "This collection showcases games and interactive projects I developed while learning and experimenting with programming and game development. Each project gave me an opportunity to apply programming concepts, build interactive mechanics, and explore how code can be turned into playable experiences.",
-	  problem: "",
-	  solution: "",
-	  features: [
-		"Playable game projects developed from scratch",
-		"Interactive gameplay built through programming",
-		"Experimentation with game mechanics and player interaction",
-		"Application of programming concepts to interactive projects",
-		"Playable projects hosted through itch.io"
-	  ],
-	  status: "Completed"
-	}*/
+      id: "game-development",
+      slug: "game-development",
+      name: "Game Development Collection",
+      category: "Game Development",
+      secondaryCategory: "Programming",
+      projectType: "Game Development",
+      description: "A collection of games and interactive projects I created while exploring programming, game development, and interactive design.",
+      year: "2023–2025",
+      technologies: ["HTML", "Notepad++", "Spyder"],
+      images: [
+        "banga01.png",
+        "banga02.png",
+        "banga03.png",
+        "banga04.png"
+      ],
+      videos: [],
+      embeds: [
+        {
+          url: "https://itch.io/embed-upload/9092237?color=676767",
+          aspect: "16/9",
+          linkLabel: "Play on itch.io"
+        }
+      ],
+      projectUrl: null,
+      githubUrl: null,
+      demoUrl: "https://demobnector.itch.io/",
+      role: "Creator / Programmer",
+      overview: "This collection showcases games and interactive projects I developed while learning and experimenting with programming and game development. Each project gave me an opportunity to apply programming concepts, build interactive mechanics, and explore how code can be turned into playable experiences.",
+      problem: "",
+      solution: "",
+      features: [
+        "Playable game projects developed from scratch",
+        "Interactive gameplay built through programming",
+        "Experimentation with game mechanics and player interaction",
+        "Application of programming concepts to interactive projects",
+        "Playable projects hosted through itch.io"
+      ],
+      status: "Completed"
+    }
+    */
   ];
 
   window.PORTFOLIO_PROJECTS = PROJECTS;
@@ -144,6 +151,15 @@
     return base + encodeURIComponent(filename);
   }
 
+  // An image can be a plain filename, or { img, title, description } for a
+  // captioned entry — normalize either form to one shape everywhere else
+  // in the file can rely on.
+  function normalizeImageEntry(entry) {
+    return typeof entry === "string"
+      ? { img: entry, title: "", description: "" }
+      : { img: entry.img, title: entry.title || "", description: entry.description || "" };
+  }
+
   /* ---------- Project grid + filtering (projects/index.html) ---------- */
   function initProjectGrid() {
     var grid = document.querySelector("[data-project-grid]");
@@ -158,8 +174,9 @@
 
     function cardMarkup(project) {
       var coverBase = assetBase + project.slug + "/";
-      var img = project.images && project.images.length
-        ? '<div class="project-card-img"><img src="' + assetUrl(coverBase, project.images[0]) + '" alt="" loading="lazy"></div>'
+      var cover = project.images && project.images.length ? normalizeImageEntry(project.images[0]) : null;
+      var img = cover
+        ? '<div class="project-card-img"><img src="' + assetUrl(coverBase, cover.img) + '" alt="" loading="lazy"></div>'
         : '<div class="project-card-img is-placeholder">Gallery in progress</div>';
 
       return (
@@ -351,24 +368,44 @@
     }
 
     var assetBase = galleryRoot.getAttribute("data-asset-base") || "";
-    var images = project.images;
+    var images = project.images.map(normalizeImageEntry);
 
-    galleryRoot.innerHTML = images.map(function (img, i) {
+    galleryRoot.innerHTML = images.map(function (image, i) {
+      var altText = image.title || (project.name + " — image " + (i + 1));
       return '<button type="button" class="gallery-item" data-index="' + i + '">' +
-        '<img src="' + assetUrl(assetBase, img) + '" alt="' + escapeHtml(project.name) + ' — image ' + (i + 1) + '" loading="lazy"></button>';
+        '<img src="' + assetUrl(assetBase, image.img) + '" alt="' + escapeHtml(altText) + '" loading="lazy"></button>';
     }).join("");
 
     var lightbox = document.querySelector("[data-lightbox]");
     if (!lightbox) return;
     var lightboxImg = lightbox.querySelector("img");
     var caption = lightbox.querySelector("[data-lightbox-caption]");
+    var infoBox = lightbox.querySelector("[data-lightbox-info]");
+    var infoTitle = lightbox.querySelector("[data-lightbox-title]");
+    var infoDesc = lightbox.querySelector("[data-lightbox-desc]");
+    var infoToggle = lightbox.querySelector("[data-lightbox-info-toggle]");
     var current = 0;
 
     function open(index) {
       current = index;
-      lightboxImg.src = assetUrl(assetBase, images[current]);
-      lightboxImg.alt = project.name + " — image " + (current + 1);
+      var image = images[current];
+      lightboxImg.src = assetUrl(assetBase, image.img);
+      lightboxImg.alt = image.title || (project.name + " — image " + (current + 1));
       if (caption) caption.textContent = (current + 1) + " / " + images.length;
+
+      // Details default back to visible on every open/navigate — a dismiss
+      // clicked on one image doesn't carry over to the next, same as a
+      // YouTube end-card dismissal only lasting for that one video.
+      var hasInfo = !!(image.title || image.description);
+      if (infoBox) infoBox.hidden = !hasInfo;
+      if (infoTitle) infoTitle.textContent = image.title || "";
+      if (infoDesc) infoDesc.textContent = image.description || "";
+      if (infoToggle) {
+        infoToggle.hidden = !hasInfo;
+        infoToggle.textContent = "Hide details";
+        infoToggle.setAttribute("aria-pressed", "false");
+      }
+
       lightbox.classList.add("is-open");
       lightbox.querySelector(".lightbox-close").focus();
     }
@@ -389,6 +426,14 @@
     if (closeBtn) closeBtn.addEventListener("click", close);
     if (prevBtn) prevBtn.addEventListener("click", function () { step(-1); });
     if (nextBtn) nextBtn.addEventListener("click", function () { step(1); });
+    if (infoToggle) {
+      infoToggle.addEventListener("click", function () {
+        var nowHidden = !infoBox.hidden;
+        infoBox.hidden = nowHidden;
+        infoToggle.textContent = nowHidden ? "Show details" : "Hide details";
+        infoToggle.setAttribute("aria-pressed", nowHidden ? "true" : "false");
+      });
+    }
     lightbox.addEventListener("click", function (e) { if (e.target === lightbox) close(); });
     document.addEventListener("keydown", function (e) {
       if (!lightbox.classList.contains("is-open")) return;
