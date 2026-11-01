@@ -89,8 +89,8 @@
               title: "Activity 2 - Fruit",
               description: "",
               images: [
-				{ img: "activity1/Apple_By_The_Window.png", title: "Apple by the Window", description: "Digitalized version of my very first traditional art after years. This turns out incredible by the end." },
-				{ img: "activity1/Apple_By_The_Window.gif", title: "Apple by the Window - GIF", description: "Simple animated loop of Apple by the Window." },
+				{ img: "activity1/Apple_by_the_Window.png", title: "Apple by the Window", description: "Digitalized version of my very first traditional art after years. This turns out incredible by the end." },
+				{ img: "activity1/Apple_by_the_Window.gif", title: "Apple by the Window - GIF", description: "Simple animated loop of Apple by the Window." },
 				// { img: "activity1/sketch.JPG", title: "Apple by the Window", description: "My very first traditional art after years." }
               ]
             },
