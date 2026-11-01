@@ -78,16 +78,53 @@ Projects are entirely data-driven from `assets/js/projects.js` — there's no pe
 
 2. That's the whole thing. It immediately shows up on the `projects/` grid (searchable/filterable by name, category, and technology), and its case-study page is live at `projects/project.html?slug=my-new-project` — reading its name, description, overview, features, technologies, links, and media straight from this object. `category`/`secondaryCategory` don't need to match a fixed list; the category filter dropdown is built from whatever values your projects actually use.
 3. `overview`, `problem`, and `solution` are each optional — leave any of them as an empty string `""` and that section is left out of the page rather than showing an empty heading. Same for `features`: leave it as `[]` to skip that block.
+4. The homepage's "Featured project" card is filled from this same array — it shows the first project, or whichever one has `featured: true` added to its object. Nothing on the homepage is hardcoded, so it always matches your active projects.
 
 ## Adding gallery images to a project
 
 1. Create a folder for the project's images under `assets/images/projects/<slug>/` if it doesn't exist yet (folders already exist for `digital-art-animation-collection` and `graphics-design-collection`).
 2. Drop image files in (WebP or JPG recommended for file size).
-3. In `assets/js/projects.js`, list each filename in that project's `images` array — just the filename, not the folder path:
+3. In `assets/js/projects.js`, list each image in that project's `images` array. Two forms work:
    ```js
+   // Plain filenames — simplest, no title/description shown when opened
    images: ["art-01.webp", "art-02.webp", "art-03.webp"]
+
+   // Or, with a title + description that shows top-left when the image is opened
+   images: [
+     { img: "art-01.webp", title: "Character Study", description: "Ink and digital color, 2026." },
+     { img: "art-02.webp", title: "", description: "" }   // blank is fine — nothing shows until you fill it in
+   ]
    ```
-4. That's it. The project card's cover photo, the case-study page's gallery grid, and the lightbox viewer all render however many images are listed — there's no hardcoded limit, so this works the same whether you list 1 image or 50.
+4. That's it. The project card's cover photo, the case-study page's gallery grid, and the lightbox viewer all render however many images are listed — there's no hardcoded limit, so this works the same whether you list 1 image or 50. Title/description are entirely optional per image — leave both blank and the image just opens plainly, no empty label shown.
+
+### Grouping images into folders
+
+When a project has a lot of images, group related ones into a **folder**. A folder is one card in the gallery (with a "Folder" badge, a stacked-paper edge, and its image count); clicking it opens just its images, with a "← All images" button to go back. Every image inside still has its own title, description, and lightbox viewer.
+
+```js
+images: [
+  // A single image — shown as its own card, with its title underneath
+  { img: "activity4_typography.png", title: "Activity 4 - Typography", description: "..." },
+
+  // A folder — its title shows under the card; `images` holds the contents
+  {
+    title: "Activity 3",
+    description: "Optional text shown at the top of the opened folder.",
+    images: [
+      { img: "activity3_instagram.png", title: "Instagram post", description: "..." },
+      { img: "activity3_banner_ad.png", title: "Banner ad", description: "..." }
+      // add new images at the END of this list
+    ]
+  }
+]
+```
+
+- **Folder thumbnail** = the *last* image in the folder (the latest one you added). To choose a different one, add `cover: "activity3_banner_ad.png"` to the folder.
+- **Files on disk** can stay in the project's normal images folder (`assets/images/projects/<slug>/`). If you'd rather keep a folder's files in their own sub-folder on disk, add `dir: "activity3"` to the folder and put the files in `assets/images/projects/<slug>/activity3/`.
+- **A single image shouldn't be a folder** — just leave it as a plain image entry.
+- Folders go one level deep (no folders inside folders). A folder with nothing active inside it (everything commented out) is left out automatically.
+- Commenting an image out with `//` still hides it, inside or outside a folder.
+- At the top level the lightbox's ← / → move through the standalone images; inside an open folder they move through that folder's images only.
 
 ## Adding animations (one MP4 or several)
 

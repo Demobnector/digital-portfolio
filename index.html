@@ -76,11 +76,9 @@
         <a class="btn" href="contact/index.html">Contact me</a>
       </div>
     </div>
-    <div class="hero-photo">
-      <div class="hero-photo">
-     <img src="assets/images/profile.jpg" alt="Zeejin Guevarra Ganaban" style="width:100%;height:100%;object-fit:cover;">
-   </div>
-    </div>
+	<div class="hero-photo">
+		<img src="assets/images/profile.jpg" alt="Zeejin Guevarra Ganaban" style="width:100%;height:100%;object-fit:cover;">
+	</div>
   </section>
 
   <section class="section" data-reveal>
@@ -124,24 +122,17 @@
     </div>
   </section>
 
-  <section class="section" data-reveal>
+  <section class="section" data-reveal data-featured-section>
     <div class="wrap">
       <div class="section-head">
         <div>
           <p class="section-kicker">Featured work</p>
-          <h2 class="section-title">Digital Art &amp; Animation Collection</h2>
+          <h2 class="section-title">Featured project</h2>
         </div>
-        <p class="section-desc">An ongoing, expandable gallery of illustration, design, and animation work — built to grow one piece at a time.</p>
+        <p class="section-desc">A closer look at my work. The full collection, with search and filters, is on the projects page.</p>
       </div>
-      <a class="project-card" href="projects/project.html?slug=digital-art-animation-collection" style="max-width:640px;">
-        <div class="project-card-img is-placeholder">Gallery in progress</div>
-        <div class="project-card-body">
-          <div class="project-card-meta"><span>Digital Art</span><span>2025–2026</span><span>Ongoing</span></div>
-          <h3>Digital Art &amp; Animation Collection</h3>
-          <p>A flexible portfolio collection for illustrations, graphic design pieces, animation work, process material, and visual experiments.</p>
-          <span class="project-card-cta">View project →</span>
-        </div>
-      </a>
+      <div data-featured-project></div>
+      <p style="margin-top:2rem;"><a class="btn btn-quiet" href="projects/index.html">See all projects &rarr;</a></p>
     </div>
   </section>
 
@@ -181,5 +172,7 @@
 </footer>
 
 <script src="assets/js/app.js"></script>
+<script src="assets/js/projects.js"></script>
+<script src="assets/js/home.js"></script>
 </body>
 </html>
