@@ -8,6 +8,7 @@
 (function () {
   "use strict";
 
+  // ===================== YOUR PROJECT DATA — edit below =====================
   // Each project can hold as many gallery images as you like — the grid
   // and lightbox both render however many entries are in `images`.
   var PROJECTS = [
@@ -21,25 +22,80 @@
       description: "A collection of my creative work and design projects from the Graphics Design subject.",
       year: "2026–2027",
       technologies: ["Krita", "Photoshop"],
-      // Each image can be a plain filename, or an object like this one so
-      // you can give it a title + description that shows top-left when
-      // someone opens it. Blank title/description just don't show — fill
-      // them in whenever you're ready, no rush.
+      // The gallery is a list of "cards". A card can be:
+      //
+      //   • A single image:  { img: "file.png", title: "...", description: "..." }
+      //     (a plain "file.png" string works too)
+      //
+      //   • A FOLDER that groups several images under one title:
+      //     { title: "Activity 3", description: "...", images: [ ...single images... ] }
+      //     The folder's thumbnail is the LAST image listed inside it (the latest one
+      //     you added). To pick a different one, add  cover: "file.png"  to the folder.
+      //     Optional: dir: "activity3"  if those files live in a sub-folder on disk
+      //     (assets/images/projects/<slug>/activity3/) instead of next to the others.
+      //
+      // And any of those cards can be put inside a CATEGORY, which gives them a heading
+      // (and, with 2+ categories, filter buttons above the gallery). Name it anything:
+      //     { category: "Prelim", description: "(optional)", items: [ ...folders / images... ] }
+      // Cards that aren't inside a category simply show without a heading.
+      //
+      // Folders and categories are one level deep (no folders inside folders, no
+      // categories inside categories). Blank title/description on an image just don't
+      // show. Commented-out lines are hidden from the site.
       images: [
-		{ img: "activity4_typography.png", title: "Activity 4 - Typography", description: "Digitalized version of a notoriously difficult traditional sketch of calligraphy. Exaggerating claim; it was fun." },
-        // { img: "activity4_Create_Your_World_Typography.jpg", title: "", description: "" },
-        { img: "activity3_social_media_post_instagram.png", title: "Activity 3 - Instagram", description: "Social media post, but instead on Instagram template." },
-        { img: "activity3_social_media_post.png", title: "Activity 3 - Social Media Post", description: "Provided a post-worthy design." },
-        { img: "activity3_landing_page_banner.png", title: "Activity 3 - Landing Page Banner", description: "This is a kind of banner that you see on websites, at the very top." },
-        { img: "activity3_banner_ad.png", title: "Activity 3 - Banner Ads", description: "How do I describe this, uh, it's a banner, but it really looks like a square to me for some reason." },
-        { img: "activity3_icon.png", title: "Activity 3 - Icon", description: "A task of digitalizing a sketch of this icon. This is how it turns out." },
-        // { img: "activity3_Brew_Haven_Logo.jpg", title: "", description: "" },
-        { img: "activity2_Ganaban_Badge.png", title: "Activity 2 - Badge", description: "My logo surrounded by shapes to make it look like a badge." },
-        { img: "activity2_Ganaban_Horizontal_Logo.png", title: "Activity 2 - Horizontal Logo", description: "Logo with my name at the side." },
-        { img: "activity2_Ganaban_Vertical_Logo.png", title: "Activity 2 - Vertical Logo", description: "Logo with my name below." },
-        { img: "activity2_Ganaban_Icon.png", title: "Activity 2 - Icon", description: "My personal icon. Looks like a sticker too." },
-        { img: "activity2_Ganaban_Sketch.png", title: "Activity 2 - Sketch", description: "These are all the rough sketches and plan of how I can pull it off. We were given 2 ways, either traditional or digital. I picked digital." }
-        // { img: "activity1_.JPG", title: "", description: "" }
+        {
+          category: "Finals",
+          description: "Web design",
+          items: [
+				{ img: "activity5.png", title: "Activity 5 - Wireframing", description: "The wireframe version of this website before it becomes a fully-functional one." },
+			]
+		},
+        {
+          category: "Midterm",
+          description: "Social Media",
+          items: [
+			  {
+				  title: "Activity 3",
+				  description: "",
+				  images: [
+					{ img: "activity3/social_media_post_instagram.png", title: "Activity 3 - Instagram", description: "Social media post, but instead on Instagram template." },
+					{ img: "activity3/social_media_post.png", title: "Activity 3 - Social Media Post", description: "Provided a post-worthy design." },
+					{ img: "activity3/landing_page_banner.png", title: "Activity 3 - Landing Page Banner", description: "This is a kind of banner that you see on websites, at the very top." },
+					{ img: "activity3/banner_ad.png", title: "Activity 3 - Banner Ads", description: "How do I describe this, uh, it's a banner, but it really looks like a square to me for some reason." },
+					// { img: "activity3/Brew_Haven_Logo.jpg", title: "", description: "" },
+					{ img: "activity3/icon.png", title: "Activity 3 - Icon", description: "A task of digitalizing a sketch of this icon. This is how it turns out." }
+				  ],
+			  },
+			  { img: "activity4/typography.png", title: "Activity 4 - Typography", description: "Digitalized version of a notoriously difficult traditional sketch of calligraphy. Exaggerating claim; it was fun." },
+			// { img: "activity4/Create_Your_World_Typography.jpg", title: "", description: "" },
+			]
+        },
+        {
+          category: "Prelim",
+          description: "Arts and Creativity",
+          items: [
+            {
+              title: "Activity 2 - Logos",
+              description: "",
+              images: [
+                { img: "activity2/Ganaban_Badge.png", title: "Activity 2 - Badge", description: "My logo surrounded by shapes to make it look like a badge." },
+                { img: "activity2/Ganaban_Horizontal_Logo.png", title: "Activity 2 - Horizontal Logo", description: "Logo with my name at the side." },
+                { img: "activity2/Ganaban_Vertical_Logo.png", title: "Activity 2 - Vertical Logo", description: "Logo with my name below." },
+                { img: "activity2/Ganaban_Icon.png", title: "Activity 2 - Icon", description: "My personal icon. Looks like a sticker too." },
+                { img: "activity2/Ganaban_Sketch.png", title: "Activity 2 - Sketch", description: "These are all the rough sketches and plan of how I can pull it off. We were given 2 ways, either traditional or digital. I picked digital." }
+              ]
+            },
+			{
+              title: "Activity 2 - Fruit",
+              description: "",
+              images: [
+				{ img: "activity1/Apple By The Window.png", title: "Apple by the Window", description: "Digitalized version of my very first traditional art after years. This turns out incredible by the end." },
+				{ img: "activity1/Apple By The Window.gif", title: "Apple by the Window - GIF", description: "Simple animated loop of Apple by the Window." },
+				// { img: "activity1/sketch.JPG", title: "Apple by the Window", description: "My very first traditional art after years." }
+              ]
+            },
+          ]
+        }
       ],
       videos: [],
       embeds: [],
@@ -134,13 +190,21 @@
     }
     */
   ];
+  // ======================= END OF YOUR PROJECT DATA =========================
+  // Everything below is the site's code — you shouldn't need to edit it.
+
 
   window.PORTFOLIO_PROJECTS = PROJECTS;
 
+  // Safe for both text and attribute values (quotes are escaped too — titles
+  // like  The "Best" of  would otherwise cut an attribute short).
   function escapeHtml(str) {
-    var div = document.createElement("div");
-    div.textContent = str == null ? "" : String(str);
-    return div.innerHTML;
+    return String(str == null ? "" : str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 
   // Builds a safe asset URL from a base path + a raw filename that may
@@ -148,7 +212,20 @@
   // filename (not the base path's slashes) so "My Clip (2025).mp4" resolves
   // correctly both locally and once hosted on GitHub Pages.
   function assetUrl(base, filename) {
-    return base + encodeURIComponent(filename);
+    return base + encodePath(filename);
+  }
+
+  // Encodes a file path for a URL ONE SEGMENT AT A TIME, so a path like
+  // "activity3/My Photo (1).png" keeps its "/" as a real folder separator while
+  // the spaces and brackets are still made safe. (Encoding the whole string at
+  // once turns "/" into "%2F", which browsers and GitHub Pages treat as part of
+  // a file name, so images in sub-folders failed to load.)
+  function encodePath(path) {
+    return String(path == null ? "" : path)
+      .replace(/\\/g, "/")          // Windows-style backslashes
+      .replace(/^(\.?\/)+/, "")      // a leading "./" or "/"
+      .split("/").filter(Boolean)
+      .map(encodeURIComponent).join("/");
   }
 
   // An image can be a plain filename, or { img, title, description } for a
@@ -159,6 +236,94 @@
       ? { img: entry, title: "", description: "" }
       : { img: entry.img, title: entry.title || "", description: entry.description || "" };
   }
+
+  // A gallery card is a single image, or a folder: { title, description, images: [...] }.
+  function isFolderEntry(entry) {
+    return !!entry && typeof entry === "object" && Array.isArray(entry.images);
+  }
+
+  // "activity3" or "a/b" -> "activity3/" (each segment URL-encoded); "" -> "".
+  function encodeDir(dir) {
+    var encoded = encodePath(dir);
+    return encoded ? encoded + "/" : "";
+  }
+
+  // A category groups cards under a heading:
+  //   { category: "Prelim", description: "(optional)", items: [ ...cards ] }
+  // (`images:` instead of `items:` also works, as long as there's no `title`.)
+  function isCategoryEntry(entry) {
+    if (!entry || typeof entry !== "object") return false;
+    if (Array.isArray(entry.items)) return true;
+    return typeof entry.category === "string" && Array.isArray(entry.images) && !entry.title && !entry.img;
+  }
+
+  // Turns a project's raw `images` array into one flat, ordered list of cards:
+  //   { type: "image", img, title, description, category, categoryDescription }
+  //   { type: "folder", title, description, dir, items: [...], cover: <item>, category, categoryDescription }
+  // `category` is "" for cards that aren't inside any category.
+  // Folders with nothing active inside them (e.g. everything commented out) are skipped,
+  // and so are categories that end up empty.
+  function galleryEntries(project) {
+    var out = [];
+
+    function addCard(entry, category, categoryDescription) {
+      var card = null;
+      if (isFolderEntry(entry)) {
+        var items = entry.images
+          .filter(function (it) { return it && !isFolderEntry(it) && !isCategoryEntry(it) && (typeof it === "string" || it.img); })
+          .map(normalizeImageEntry);
+        if (!items.length) return;
+        // Thumbnail = the latest image added (last in the list), unless `cover` names another.
+        var cover = items[items.length - 1];
+        if (entry.cover) {
+          var picked = items.filter(function (it) { return it.img === entry.cover; })[0];
+          if (picked) cover = picked;
+        }
+        card = {
+          type: "folder",
+          title: entry.title || "Untitled folder",
+          description: entry.description || "",
+          dir: entry.dir || "",
+          items: items,
+          cover: cover
+        };
+      } else if (entry && (typeof entry === "string" || entry.img)) {
+        card = normalizeImageEntry(entry);
+        card.type = "image";
+      }
+      if (!card) return;
+      // A card can also carry its own `category: "..."` instead of being nested in one.
+      var own = entry && typeof entry === "object" && typeof entry.category === "string" ? entry.category.trim() : "";
+      card.category = own || category;
+      card.categoryDescription = categoryDescription;
+      out.push(card);
+    }
+
+    (project.images || []).forEach(function (entry) {
+      if (isCategoryEntry(entry)) {
+        var name = String(entry.category || entry.title || "").trim();
+        var description = entry.description || "";
+        (entry.items || entry.images).forEach(function (item) {
+          if (!isCategoryEntry(item)) addCard(item, name, description); // categories are one level deep
+        });
+      } else {
+        addCard(entry, "", "");
+      }
+    });
+    return out;
+  }
+
+  // Path of a project's cover image, relative to its images folder
+  // (e.g. "photo.png" or "activity3/photo.png"). Also used by home.js.
+  function coverRelPath(project) {
+    var entries = galleryEntries(project);
+    if (!entries.length) return "";
+    var first = entries[0];
+    return first.type === "folder"
+      ? encodeDir(first.dir) + encodePath(first.cover.img)
+      : encodePath(first.img);
+  }
+  window.PORTFOLIO_COVER_PATH = coverRelPath;
 
   /* ---------- Project grid + filtering (projects/index.html) ---------- */
   function initProjectGrid() {
@@ -174,9 +339,9 @@
 
     function cardMarkup(project) {
       var coverBase = assetBase + project.slug + "/";
-      var cover = project.images && project.images.length ? normalizeImageEntry(project.images[0]) : null;
-      var img = cover
-        ? '<div class="project-card-img"><img src="' + assetUrl(coverBase, cover.img) + '" alt="" loading="lazy"></div>'
+      var coverRel = coverRelPath(project);
+      var img = coverRel
+        ? '<div class="project-card-img"><img src="' + coverBase + coverRel + '" alt="" loading="lazy"></div>'
         : '<div class="project-card-img is-placeholder">Gallery in progress</div>';
 
       return (
@@ -354,44 +519,178 @@
     if (ogDesc) ogDesc.setAttribute("content", project.description || "");
   }
 
-  /* ---------- Gallery + lightbox (project detail pages) ---------- */
+  /* ---------- Gallery: categories + folders + image cards + lightbox (project detail pages) ---------- */
   function initGallery() {
     var galleryRoot = document.querySelector("[data-gallery]");
     if (!galleryRoot) return;
     var slug = galleryRoot.getAttribute("data-project-slug");
     var project = PROJECTS.filter(function (p) { return p.slug === slug; })[0];
     var emptyNote = document.querySelector("[data-gallery-empty]");
+    var entries = project ? galleryEntries(project) : [];
 
-    if (!project || !project.images || !project.images.length) {
+    if (!entries.length) {
       if (emptyNote) emptyNote.style.display = "block";
       return;
     }
 
     var assetBase = galleryRoot.getAttribute("data-asset-base") || "";
-    var images = project.images.map(normalizeImageEntry);
+    var FOLDER_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4.6c.4 0 .78.16 1.06.44L11.5 7h8A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/></svg>';
 
-    galleryRoot.innerHTML = images.map(function (image, i) {
-      var altText = image.title || (project.name + " — image " + (i + 1));
-      return '<button type="button" class="gallery-item" data-index="' + i + '">' +
-        '<img src="' + assetUrl(assetBase, image.img) + '" alt="' + escapeHtml(altText) + '" loading="lazy"></button>';
-    }).join("");
+    // Cards with the same category name share one section, in order of first
+    // appearance. Cards outside any category (name "") get no heading.
+    var groups = [];
+    entries.forEach(function (card) {
+      var group = groups.filter(function (g) { return g.name === card.category; })[0];
+      if (!group) {
+        group = { name: card.category, description: "", cards: [] };
+        groups.push(group);
+      }
+      if (!group.description && card.categoryDescription) group.description = card.categoryDescription;
+      group.cards.push(card);
+    });
+    var categoryNames = groups.filter(function (g) { return g.name; }).map(function (g) { return g.name; });
 
+    var activeCategory = "";   // "" = everything
+    var openFolderEntry = null; // the folder card currently open, or null
+    var renderedTop = [];       // cards on screen at the top level, in display order
+
+    // ----- folder bar (shown only while a folder is open) -----
+    var folderBar = document.createElement("div");
+    folderBar.className = "gallery-folder-bar";
+    folderBar.hidden = true;
+    folderBar.innerHTML =
+      '<button type="button" class="gallery-back">← Back to gallery</button>' +
+      '<div class="gallery-folder-heading"><h3></h3><p></p></div>' +
+      '<span class="gallery-folder-count"></span>';
+    galleryRoot.parentNode.insertBefore(folderBar, galleryRoot);
+    var backBtn = folderBar.querySelector(".gallery-back");
+    var barTitle = folderBar.querySelector("h3");
+    var barDesc = folderBar.querySelector("p");
+    var barCount = folderBar.querySelector(".gallery-folder-count");
+
+    // ----- category filter chips (only worth showing with 2+ categories) -----
+    var categoryBar = null;
+    if (categoryNames.length >= 2) {
+      categoryBar = document.createElement("div");
+      categoryBar.className = "gallery-filter";
+      categoryBar.setAttribute("role", "group");
+      categoryBar.setAttribute("aria-label", "Filter by category");
+      categoryBar.innerHTML = ['<button type="button" class="gallery-chip is-active" data-category="" aria-pressed="true">All</button>']
+        .concat(categoryNames.map(function (name) {
+          return '<button type="button" class="gallery-chip" data-category="' + escapeHtml(name) + '" aria-pressed="false">' + escapeHtml(name) + '</button>';
+        })).join("");
+      galleryRoot.parentNode.insertBefore(categoryBar, galleryRoot);
+      categoryBar.addEventListener("click", function (e) {
+        var chip = e.target.closest(".gallery-chip");
+        if (!chip) return;
+        activeCategory = chip.getAttribute("data-category") || "";
+        categoryBar.querySelectorAll(".gallery-chip").forEach(function (c) {
+          var on = (c.getAttribute("data-category") || "") === activeCategory;
+          c.classList.toggle("is-active", on);
+          c.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        render();
+      });
+    }
+
+    function imageUrl(item, folder) {
+      return assetBase + (folder ? encodeDir(folder.dir) : "") + encodePath(item.img);
+    }
+    function countLabel(n) { return n + (n === 1 ? " image" : " images"); }
+
+    function sectionHeadHtml(group) {
+      return '<div class="gallery-section-head"><h3>' + escapeHtml(group.name) + '</h3>' +
+        (group.description ? '<p>' + escapeHtml(group.description) + '</p>' : "") + '</div>';
+    }
+
+    function cardHtml(entry, index, folder) {
+      var isFolder = entry.type === "folder";
+      var thumb = isFolder ? imageUrl(entry.cover, entry) : imageUrl(entry, folder);
+      var title = entry.title || "";
+      // The visible caption already names the card, so the thumbnail only
+      // needs its own alt text when there's no caption to read.
+      var alt = title ? "" : (project.name + " — image " + (index + 1));
+      var badge = isFolder ? '<span class="gallery-badge">' + FOLDER_ICON + 'Folder</span>' : "";
+      var caption = "";
+      if (title || isFolder) {
+        caption =
+          '<span class="gallery-caption">' +
+          '<span class="gallery-caption-title">' + escapeHtml(title) + '</span>' +
+          (isFolder ? '<span class="gallery-caption-meta">' + FOLDER_ICON + escapeHtml(countLabel(entry.items.length)) + '</span>' : "") +
+          '</span>';
+      }
+      var label = isFolder ? ' aria-label="' + escapeHtml("Open folder: " + title + ", " + countLabel(entry.items.length)) + '"' : "";
+      return (
+        '<button type="button" class="gallery-item' + (isFolder ? " is-folder" : "") + '" data-index="' + index + '"' + label + '>' +
+        '<span class="gallery-thumb"><img src="' + thumb + '" alt="' + escapeHtml(alt) + '" loading="lazy">' + badge + '</span>' +
+        caption +
+        '</button>'
+      );
+    }
+
+    function render() {
+      var html = "";
+      if (openFolderEntry) {
+        html = openFolderEntry.items.map(function (item, i) {
+          return cardHtml(item, i, openFolderEntry);
+        }).join("");
+      } else {
+        renderedTop = [];
+        groups.forEach(function (group) {
+          if (activeCategory && group.name !== activeCategory) return;
+          if (group.name) html += sectionHeadHtml(group);
+          group.cards.forEach(function (card) {
+            html += cardHtml(card, renderedTop.length, null);
+            renderedTop.push(card);
+          });
+        });
+      }
+      galleryRoot.innerHTML = html;
+
+      folderBar.hidden = !openFolderEntry;
+      if (categoryBar) categoryBar.hidden = !!openFolderEntry;
+      if (openFolderEntry) {
+        barTitle.textContent = openFolderEntry.title;
+        barDesc.textContent = openFolderEntry.description;
+        barCount.textContent = countLabel(openFolderEntry.items.length);
+      }
+    }
+
+    function openFolder(card) {
+      openFolderEntry = card;
+      render();
+      if (folderBar.getBoundingClientRect().top < 0) folderBar.scrollIntoView({ block: "start" });
+      backBtn.focus();
+    }
+    function closeFolder() {
+      var returnTo = openFolderEntry;
+      openFolderEntry = null;
+      render();
+      var index = renderedTop.indexOf(returnTo);
+      var button = index >= 0 ? galleryRoot.querySelector('[data-index="' + index + '"]') : null;
+      if (button) button.focus();
+    }
+
+    /* ----- lightbox (navigates within whatever is currently on screen) ----- */
     var lightbox = document.querySelector("[data-lightbox]");
-    if (!lightbox) return;
-    var lightboxImg = lightbox.querySelector("img");
-    var caption = lightbox.querySelector("[data-lightbox-caption]");
-    var infoBox = lightbox.querySelector("[data-lightbox-info]");
-    var infoTitle = lightbox.querySelector("[data-lightbox-title]");
-    var infoDesc = lightbox.querySelector("[data-lightbox-desc]");
-    var infoToggle = lightbox.querySelector("[data-lightbox-info-toggle]");
+    var lightboxImg, caption, infoBox, infoTitle, infoDesc, infoToggle, prevBtn, nextBtn;
+    var list = [];
+    var listFolder = null;
     var current = 0;
 
     function open(index) {
       current = index;
-      var image = images[current];
-      lightboxImg.src = assetUrl(assetBase, image.img);
+      var image = list[current];
+      lightboxImg.src = imageUrl(image, listFolder);
       lightboxImg.alt = image.title || (project.name + " — image " + (current + 1));
-      if (caption) caption.textContent = (current + 1) + " / " + images.length;
+      if (caption) {
+        var parts = [];
+        var category = listFolder ? listFolder.category : image.category;
+        if (category) parts.push(category);
+        if (listFolder) parts.push(listFolder.title);
+        parts.push((current + 1) + " / " + list.length);
+        caption.textContent = parts.join(" · ");
+      }
 
       // Details default back to visible on every open/navigate — a dismiss
       // clicked on one image doesn't carry over to the next, same as a
@@ -405,6 +704,9 @@
         infoToggle.textContent = "Hide details";
         infoToggle.setAttribute("aria-pressed", "false");
       }
+      // Nothing to step through when there's only one image.
+      if (prevBtn) prevBtn.hidden = list.length < 2;
+      if (nextBtn) nextBtn.hidden = list.length < 2;
 
       lightbox.classList.add("is-open");
       lightbox.querySelector(".lightbox-close").focus();
@@ -413,16 +715,47 @@
       lightbox.classList.remove("is-open");
     }
     function step(delta) {
-      current = (current + delta + images.length) % images.length;
-      open(current);
+      open((current + delta + list.length) % list.length);
     }
 
-    galleryRoot.querySelectorAll(".gallery-item").forEach(function (btn) {
-      btn.addEventListener("click", function () { open(parseInt(btn.getAttribute("data-index"), 10)); });
+    // Open the lightbox on card `i` of the current view. At the top level the
+    // lightbox cycles through the standalone images on screen (folders are
+    // opened, not viewed); inside a folder it cycles through that folder's images.
+    function openImageCard(i) {
+      if (!lightbox) return;
+      if (openFolderEntry) {
+        list = openFolderEntry.items;
+        listFolder = openFolderEntry;
+        open(i);
+      } else {
+        list = renderedTop.filter(function (c) { return c.type === "image"; });
+        listFolder = null;
+        open(list.indexOf(renderedTop[i]));
+      }
+    }
+
+    galleryRoot.addEventListener("click", function (e) {
+      var btn = e.target.closest(".gallery-item");
+      if (!btn) return;
+      var i = parseInt(btn.getAttribute("data-index"), 10);
+      if (!openFolderEntry && renderedTop[i].type === "folder") openFolder(renderedTop[i]);
+      else openImageCard(i);
     });
+    backBtn.addEventListener("click", closeFolder);
+
+    render();
+
+    if (!lightbox) return;
+    lightboxImg = lightbox.querySelector("img");
+    caption = lightbox.querySelector("[data-lightbox-caption]");
+    infoBox = lightbox.querySelector("[data-lightbox-info]");
+    infoTitle = lightbox.querySelector("[data-lightbox-title]");
+    infoDesc = lightbox.querySelector("[data-lightbox-desc]");
+    infoToggle = lightbox.querySelector("[data-lightbox-info-toggle]");
     var closeBtn = lightbox.querySelector(".lightbox-close");
-    var prevBtn = lightbox.querySelector(".lightbox-prev");
-    var nextBtn = lightbox.querySelector(".lightbox-next");
+    prevBtn = lightbox.querySelector(".lightbox-prev");
+    nextBtn = lightbox.querySelector(".lightbox-next");
+
     if (closeBtn) closeBtn.addEventListener("click", close);
     if (prevBtn) prevBtn.addEventListener("click", function () { step(-1); });
     if (nextBtn) nextBtn.addEventListener("click", function () { step(1); });
@@ -438,8 +771,8 @@
     document.addEventListener("keydown", function (e) {
       if (!lightbox.classList.contains("is-open")) return;
       if (e.key === "Escape") close();
-      if (e.key === "ArrowLeft") step(-1);
-      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft" && list.length > 1) step(-1);
+      if (e.key === "ArrowRight" && list.length > 1) step(1);
     });
   }
 
@@ -457,13 +790,19 @@
     }
 
     var assetBase = videoRoot.getAttribute("data-asset-base") || "";
+    // A .gif (or .apng / animated .webp) listed here is shown as an animated
+    // image instead of a <video> — same tile, same viewer.
+    var ANIMATED_IMAGE = /\.(gif|apng|webp)$/i;
     var clips = project.videos.map(function (v) {
-      // Each entry can be a plain filename ("clip.mp4") or an
-      // { src, caption, poster } object — poster is an optional thumbnail
-      // image filename from the same project's images folder.
-      return typeof v === "string" ? { src: v, caption: "", poster: "" } : {
+      // Each entry can be a plain filename ("clip.mp4" or "loop.gif") or an
+      // { src, caption, poster } object — poster is an optional still thumbnail
+      // image filename from the same folder.
+      var clip = typeof v === "string" ? { src: v, caption: "", poster: "" } : {
         src: v.src, caption: v.caption || "", poster: v.poster || ""
       };
+      clip.animated = ANIMATED_IMAGE.test(String(clip.src || ""));
+      clip.kind = clip.animated ? String(clip.src).split(".").pop().toUpperCase() : "";
+      return clip;
     });
 
     var playIcon = '<span class="video-gallery-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
@@ -474,14 +813,19 @@
       // one-second mark so the tile displays that frame.
       var thumb = clip.poster
         ? '<img src="' + assetUrl(assetBase, clip.poster) + '" alt="" loading="lazy">'
-        : '<video class="video-gallery-thumb" muted playsinline preload="metadata" tabindex="-1">' +
-          '<source src="' + assetUrl(assetBase, clip.src) + '" type="video/mp4"></video>';
+        : clip.animated
+          ? '<img src="' + assetUrl(assetBase, clip.src) + '" alt="" loading="lazy">'
+          : '<video class="video-gallery-thumb" muted playsinline preload="metadata" tabindex="-1">' +
+            '<source src="' + assetUrl(assetBase, clip.src) + '" type="video/mp4"></video>';
+      // Animated images get a small "GIF" tag instead of the play button.
+      var marker = clip.animated ? '<span class="gallery-badge">' + escapeHtml(clip.kind) + '</span>' : playIcon;
       var caption = clip.caption
         ? '<span class="video-gallery-caption">' + escapeHtml(clip.caption) + '</span>'
         : "";
+      var label = clip.caption || ((clip.animated ? "View animation " : "Play clip ") + (i + 1));
       return (
-        '<button type="button" class="video-gallery-item" data-index="' + i + '">' +
-        thumb + playIcon + caption +
+        '<button type="button" class="video-gallery-item" data-index="' + i + '" aria-label="' + escapeHtml(label) + '">' +
+        thumb + marker + caption +
         '</button>'
       );
     }).join("");
@@ -502,22 +846,57 @@
     var caption = lightbox.querySelector("[data-video-lightbox-caption]");
     var current = 0;
 
+    // The viewer has a <video>; for a .gif we add a plain <img> next to it
+    // (created on first use) and show whichever one the current clip needs.
+    var gifEl = null;
+    function getGifEl() {
+      if (!gifEl) {
+        gifEl = document.createElement("img");
+        gifEl.className = "lightbox-gif";
+        gifEl.alt = "";
+        gifEl.hidden = true;
+        videoEl.parentNode.insertBefore(gifEl, videoEl);
+      }
+      return gifEl;
+    }
+    function stopVideo() {
+      videoEl.pause();
+      videoEl.removeAttribute("src");
+      sourceEl.removeAttribute("src");
+      videoEl.load();
+    }
+    function hideGif() {
+      if (!gifEl) return;
+      gifEl.hidden = true;
+      gifEl.removeAttribute("src"); // also stops the animation and frees memory
+    }
+
     function open(index) {
       current = index;
-      sourceEl.src = assetUrl(assetBase, clips[current].src);
-      videoEl.load();
-      videoEl.play().catch(function () { /* autoplay may be blocked; controls remain available */ });
+      var clip = clips[current];
+      if (clip.animated) {
+        stopVideo();
+        videoEl.hidden = true;
+        var img = getGifEl();
+        img.alt = clip.caption || ("Animation " + (current + 1));
+        img.src = assetUrl(assetBase, clip.src);
+        img.hidden = false;
+      } else {
+        hideGif();
+        videoEl.hidden = false;
+        sourceEl.src = assetUrl(assetBase, clip.src);
+        videoEl.load();
+        videoEl.play().catch(function () { /* autoplay may be blocked; controls remain available */ });
+      }
       if (caption) {
-        caption.textContent = clips[current].caption || ((current + 1) + " / " + clips.length);
+        caption.textContent = clip.caption || ((current + 1) + " / " + clips.length);
       }
       lightbox.classList.add("is-open");
       lightbox.querySelector(".lightbox-close").focus();
     }
     function close() {
-      videoEl.pause();
-      videoEl.removeAttribute("src");
-      sourceEl.removeAttribute("src");
-      videoEl.load();
+      stopVideo();
+      hideGif();
       lightbox.classList.remove("is-open");
     }
     function step(delta) {
@@ -617,7 +996,7 @@
     if (!project) return;
 
     var types = [
-      { key: "images", label: "All Images", has: !!(project.images && project.images.length) },
+      { key: "images", label: "All Images", has: galleryEntries(project).length > 0 },
       { key: "videos", label: "All Videos", has: !!(project.videos && project.videos.length) },
       { key: "embeds", label: "Play", has: !!(project.embeds && project.embeds.length) }
     ];
