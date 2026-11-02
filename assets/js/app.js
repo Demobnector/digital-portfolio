@@ -48,23 +48,53 @@
     });
   }
 
-  /* ---------- Scroll reveal (single, gentle pass) ---------- */
+  /* ---------- Scroll reveal (gentle fade-in for sections below the fold) ----------
+     Content is VISIBLE by default. Only sections that start below the visible
+     screen are held back (.reveal-pending) and faded in as they scroll into view,
+     so nothing already on screen — or on a page where JS fails — can ever stay
+     hidden. (An earlier version hid everything until 15% of it was on screen,
+     which left tall pages blank on small phones.) */
   function initReveal() {
     var items = document.querySelectorAll("[data-reveal]");
     if (!items.length) return;
-    if (!("IntersectionObserver" in window)) {
-      items.forEach(function (el) { el.classList.add("is-visible"); });
+
+    function show(el) {
+      el.classList.remove("reveal-pending");
+      el.classList.add("is-visible");
+    }
+
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      items.forEach(show);
       return;
     }
+
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+    var pending = [];
+    items.forEach(function (el) {
+      // Anything that starts on screen (or above it) is never hidden.
+      if (el.getBoundingClientRect().top < viewportHeight) {
+        show(el);
+      } else {
+        el.classList.add("reveal-pending");
+        pending.push(el);
+      }
+    });
+    if (!pending.length) return;
+
+    // threshold 0: reveal as soon as ANY part is on screen, however tall the section is.
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
+          show(entry.target);
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
-    items.forEach(function (el) { observer.observe(el); });
+    }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+    pending.forEach(function (el) { observer.observe(el); });
+
+    // Safety net: whatever happens, nothing stays hidden for more than a few seconds.
+    setTimeout(function () { pending.forEach(show); }, 3500);
   }
 
   /* ---------- Footer year ---------- */
