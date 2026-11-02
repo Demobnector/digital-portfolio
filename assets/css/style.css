@@ -709,7 +709,7 @@ button { font-family: inherit; }
   pointer-events: none;
 }
 .video-gallery-play svg { width: 16px; height: 16px; margin-left: 2px; }
-.video-lightbox img { display: none; }
+.lightbox-gif[hidden] { display: none; } /* (the generic .lightbox img rule would otherwise override [hidden]) */
 .video-lightbox video { max-width: min(90vw, 900px); max-height: 82vh; border-radius: 2px; background: #000; }
 
 .project-empty-note {
@@ -801,13 +801,13 @@ button { font-family: inherit; }
 
 /* ---------- Reveal-on-scroll (single orchestrated pass) ---------- */
 .reveal { opacity: 1; }
-[data-reveal] {
-  opacity: 0; transform: translateY(14px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+/* Visible by default. Only sections JS has marked as "pending" (below the
+   fold) start faded out, and no transform is left behind once revealed. */
+[data-reveal] { transition: opacity .6s ease, transform .6s ease; }
+[data-reveal].reveal-pending { opacity: 0; transform: translateY(14px); }
+[data-reveal].is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1; transform: none; }
+  [data-reveal], [data-reveal].reveal-pending { opacity: 1; transform: none; transition: none; }
 }
 
 /* ---------- Misc ---------- */
