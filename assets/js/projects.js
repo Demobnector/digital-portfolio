@@ -55,7 +55,7 @@
           description: "Social Media",
           items: [
 			  {
-				  title: "Activity 3",
+				  title: "Activity 3 - Promotion",
 				  description: "",
 				  images: [
 					{ img: "activity3/social_media_post_instagram.png", title: "Activity 3 - Instagram", description: "Social media post, but instead on Instagram template." },
