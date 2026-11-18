@@ -107,7 +107,7 @@
       problem: "",
       solution: "",
       features: [],
-      status: "Ongoing"
+      status: "Completed"
     }
     /*,
     {
